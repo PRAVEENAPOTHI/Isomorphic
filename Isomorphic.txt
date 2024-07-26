@@ -1,0 +1,66 @@
+//string problem isomorphic
+class Solution{
+    public boolean isIsomorphic(String s, String t){
+       HashMap<Character,Character> map1 = new HashMap<>();
+       HashMap<Character,Character> map2 = new HashMap<>();
+
+      for(int i=0;i<s.length();i++)
+{
+         char a = s.charAt(i);
+         char b = b.charAt(i);
+         if(map1.containsKey(a) && map1.get(a) !=b || map2.containsKey(b) && map2.get(b) !=a)
+           return false;
+         map1.put(a,b);
+         map2.put(b,a);
+}
+return true;
+}
+
+}
+
+// A space optimized Java 
+// program to check if a
+// number is happy number
+import java.io.*;
+
+class Solution{   
+    
+    static int sumDigitSquare(int n)
+    {
+        int sq = 0;
+        while (n != 0) 
+        {
+            int digit = n % 10;
+            sq += digit * digit;
+            n = n / 10;
+        }
+        return sq;
+    }
+    
+    
+    static boolean isHappy(int n)
+    {
+
+        while (true) 
+        {
+            if (n == 1)
+                return true;
+  
+            n = sumDigitSquare(n);
+   
+            if (n == 4)
+                return false;
+        }
+    
+    }
+    public static void main(String args[])
+    {
+        int n = 23;
+        if (isHappy(n))
+            System.out.println("Yes");
+        else
+            System.out.println("No" );
+    }
+}
+
+
